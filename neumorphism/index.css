@@ -1,0 +1,30 @@
+html, body {
+  background-color: #ebeef9;
+}
+
+.neu {
+  color: rgba(0, 0, 0, 0.2);
+  border: none;
+  background: #ebeef9;
+  --offset: 4px;
+  --blur: 7px;
+  --shine-color: #fff;
+  --shadow-color: #cccfd9;
+  box-shadow: var(--offset) var(--offset) var(--blur) var(--shadow-color),
+              calc(var(--offset) * -1) calc(var(--offset) * -1) var(--blur) var(--shine-color);
+}
+.neu:active {
+  box-shadow: inset var(--offset) var(--offset) var(--blur) var(--shadow-color),
+              inset calc(var(--offset) * -1) calc(var(--offset) * -1) var(--blur) var(--shine-color);
+
+}
+
+button {
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: none;
+  padding: 10px 20px;
+}
+button:focus {
+  outline: none;
+}
