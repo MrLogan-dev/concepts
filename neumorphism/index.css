@@ -1,9 +1,43 @@
 html, body {
+  margin: 0;
+  padding: 0;
   background-color: #ebeef9;
 }
 
-.neu {
-  color: rgba(0, 0, 0, 0.2);
+* {
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+
+.page-heading h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.content, .page-heading {
+  margin: 20px;
+  padding: 15px;
+  border-radius: 5px;
+}
+.content {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (min-width: 1000px) {
+  .content, .page-heading {
+    width: 500px;
+    margin: auto;
+  }
+  .content {
+    margin-top: 30px;
+  }
+}
+
+.neu,
+.switch-label:after {
+  color: rgba(0, 0, 0, 0.15);
   border: none;
   background: #ebeef9;
   --offset: 4px;
@@ -13,18 +47,119 @@ html, body {
   box-shadow: var(--offset) var(--offset) var(--blur) var(--shadow-color),
               calc(var(--offset) * -1) calc(var(--offset) * -1) var(--blur) var(--shine-color);
 }
-.neu:active {
+.clickable:active,
+.switch-label:before {
   box-shadow: inset var(--offset) var(--offset) var(--blur) var(--shadow-color),
               inset calc(var(--offset) * -1) calc(var(--offset) * -1) var(--blur) var(--shine-color);
-
 }
 
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Components */
+
+/* BUTTON */
 button {
-  text-transform: uppercase;
   border-radius: 50px;
   border: none;
   padding: 10px 20px;
+  font-weight: 800;
+  line-height: 0;
 }
 button:focus {
   outline: none;
 }
+button.icon {
+  width: 35px;
+  height: 35px;
+  padding: 7px;
+}
+button.icon img {
+  filter: opacity(0.25);
+}
+/* END BUTTON */
+
+/* TOGGLE */
+/* Thank you https://codepen.io/cbracco/pen/gpXwBq */
+/* Switch Container */
+.switch {
+  --switch-transition-duration: 0.25s;
+  --switch-transition-timing-function: ease;
+
+  --switch-label-height: 35px;
+  --switch-label-width: calc(var(--switch-label-height) * 2);
+
+  --switch-rail-width: var(--switch-label-width);
+  --switch-rail-height: 100%;
+  --switch-rail-border-radius: 9999em;
+  --switch-rail-checked-background-color: #9f95d6;
+
+  --switch-knob-width: 37px;
+  --switch-knob-height: var(--switch-knob-width);
+  --switch-knob-border-radius: 50%;
+  --switch-knob-checked-left: var(--switch-knob-width);
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Hide the checkbox input (only needed for `:checked` property) */
+.switch-input {
+  display: none;
+}
+
+/* Switch */
+.switch-label {
+  display: block;
+  width: var(--switch-label-width);
+  height: var(--switch-label-height);
+  text-indent: -150%;
+  clip: rect(0 0 0 0);
+  color: transparent;
+  user-select: none;
+  position: relative;
+}
+  
+/* Switch Rail & Knob */
+.switch-label:before,
+.switch-label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  cursor: pointer;
+}
+  
+/* Switch Rail */
+.switch-label:before {
+  width: var(--switch-rail-width);
+  height: var(--switch-rail-height);
+  border-radius: var(--switch-rail-border-radius);
+  transition: background-color var(--switch-transition-duration) var(--switch-transition-timing-function);
+}
+  
+/* Switch Knob */
+.switch-label:after {
+  top: -1px;
+  left: 0;
+  width: var(--switch-knob-width);
+  height: var(--switch-knob-height);
+  border-radius: var(--switch-knob-border-radius);
+  transition: left var(--switch-transition-duration) var(--switch-transition-timing-function);
+}
+
+/* Switch Rail */
+.switch-input:checked + .switch-label:before {
+  background-color: var(--switch-rail-checked-background-color);
+  --shadow-color: #7260d6;
+  --shine-color: 0;
+}
+  
+/* Switch Knob */
+.switch-input:checked + .switch-label:after {
+  left: var(--switch-knob-checked-left);
+  box-shadow: var(--offset) var(--offset) var(--blur) var(--shadow-color)
+}
+/* END TOGGLE */
