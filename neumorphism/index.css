@@ -21,11 +21,13 @@ html, body {
 }
 .content {
   margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 600px) {
+  main {
+    margin-top: 50px;
+  }
+
   .content, .page-heading {
     width: 500px;
     margin: auto;
@@ -34,6 +36,23 @@ html, body {
     margin-top: 30px;
   }
 }
+
+/* GRID */
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+.two-col {
+  grid-column: span 2;
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* END GRID */
 
 .neu,
 .switch-label:after {
@@ -47,6 +66,7 @@ html, body {
   box-shadow: var(--offset) var(--offset) var(--blur) var(--shadow-color),
               calc(var(--offset) * -1) calc(var(--offset) * -1) var(--blur) var(--shine-color);
 }
+.neu-inset,
 .clickable:active,
 .switch-label:before {
   box-shadow: inset var(--offset) var(--offset) var(--blur) var(--shadow-color),
@@ -61,14 +81,19 @@ html, body {
 /* Components */
 
 /* BUTTON */
-button {
+button, 
+input[type='text'] {
   border-radius: 50px;
   border: none;
   padding: 10px 20px;
   font-weight: 800;
   line-height: 0;
 }
-button:focus {
+button.square {
+  border-radius: 10px;
+}
+button:focus,
+input[type='text'] {
   outline: none;
 }
 button.icon {
@@ -163,3 +188,14 @@ button.icon img {
   box-shadow: var(--offset) var(--offset) var(--blur) var(--shadow-color)
 }
 /* END TOGGLE */
+
+/* INPUT */
+input[type='text'] {
+  /* See button for shared styles */
+  font-weight: bold;
+  width: calc(100% - 3em);
+}
+input[type='text']::placeholder {
+  opacity: 0.15;
+}
+/* END INPUT */
