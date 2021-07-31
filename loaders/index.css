@@ -1,0 +1,39 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+  --primary: #2B061E;
+  --secondary: #875053;
+  --accent: #D2BF55;
+  --background-primary: #FFEED6;
+  --background-secondary: #fbe2be;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  height: 100%;
+  text-align: center;
+  background-color: var(--background-primary);
+}
+
+main > * {
+  margin: auto;
+}
+
+h1 {
+  color: var(--primary);
+  padding: 30px 0 40px;
+}
+
+.container {
+  padding: 50px;
+  width: 320px;
+  height: 320px;
+  background-color: var(--background-secondary);
+  border-radius: 10px;
+  display: grid;
+}
