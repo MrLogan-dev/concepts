@@ -15,14 +15,14 @@ div.rainbow-spinner {
   width: 142px;
   height: 142px;
 
-  --color-1: #2172b8;
-  --color-2: #18a39b;
-  --color-3: #82c545;
-  --color-4: #f8b739;
-  --color-5: #f06045;
-  --color-6: #ed2861;
-  --color-7: #c12680;
-  --color-8: #5d3191;
+  --color-1: #d7ffec;
+  --color-2: #AEFFD8;
+  --color-3: #8AFFC1;
+  --color-4: #8FDC97;
+  --color-5: #68C5DB;
+  --color-6: #0197F6;
+  --color-7: #210784;
+  --color-8: #380e65;
 }
 div.rainbow-spinner i {
   -moz-animation: rotate 3s infinite cubic-bezier(0.09, 0.6, 0.8, 0.03);

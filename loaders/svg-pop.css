@@ -1,0 +1,45 @@
+#svg-pop {
+  transform: scale(2);
+}
+
+#svg-pop #S {
+  animation: 1.5s grow-left infinite;
+}
+
+@keyframes grow-left {
+  0%, 60% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.5) translate(-15px, -12px);
+  }
+}
+
+#svg-pop #V {
+  animation: 1.5s grow-up infinite;
+}
+
+@keyframes grow-up {
+  0%, 60%, 100% {
+    transform: scale(0.65) translate(27px, 16px)
+  }
+  65% {
+    transform: scale(1) translate(0px, -10px);
+  }
+  /* 80% {
+    transform: scale(1.5);
+  } */
+}
+
+#svg-pop #G {
+  animation: 1.5s grow-right infinite;
+}
+
+@keyframes grow-right {
+  0%, 60% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.5) translate(-18px, -12px);
+  }
+}

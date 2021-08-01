@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
 
-  --primary: #2B061E;
-  --secondary: #875053;
-  --accent: #D2BF55;
-  --background-primary: #FFEED6;
-  --background-secondary: #fbe2be;
+  --primary: #6E6870;
+  --secondary: #354F52;
+  --accent: #52796F;
+  --background-primary: #ECE4F0;
+  --background-secondary: #E0CAEB;
+
+  font-family: 'Quicksand', sans-serif;
 }
 
 * {
@@ -27,6 +31,8 @@ main > * {
 h1 {
   color: var(--primary);
   padding: 30px 0 40px;
+  font-size: 32pt;
+  letter-spacing: 2px;
 }
 
 .container {
@@ -35,5 +41,14 @@ h1 {
   height: 320px;
   background-color: var(--background-secondary);
   border-radius: 10px;
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+.container > label {
+  position: absolute;
+  bottom: 10px;
+  right: 13px;
 }
