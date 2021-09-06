@@ -1,0 +1,79 @@
+:root {
+  --color-about: #F8F4EB;
+  --color-reduce: #6E9DBF;
+  --color-rethink: #344536;
+  --color-repair: #DBA498;
+  --color-recycle: #59430B;
+  --color-reuse: #A28476;
+  --color-refuse: #8E4734;
+  --color-black: #010101;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+}
+
+label, h1, h2 {
+  color: var(--color-black);
+  font-family: sans-serif;
+  margin: 0;
+}
+label, h1 {
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 72pt;
+  font-weight: normal;
+}
+label {
+  font-weight: bold;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+  position: absolute;
+  bottom: 35px;
+  left: 35px;
+  transform: rotate(0.5turn);
+}
+
+section {
+  height: 100%;
+  position: relative;
+  padding-left: 35px;
+}
+
+.about {
+  background-color: var(--color-about);
+}
+
+section.closed {
+  width: 45px;
+  background-image: none;
+}
+.closed label {
+  cursor: pointer;
+  left: 0;
+  bottom: 0;
+  padding-right: 20px;
+  padding-left: 18px;
+  padding-top: 35px;
+  height: 100%;
+}
+.closed p {
+  display: none;
+}
+
+.centered-bg-img {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.reduce {
+  background-color: var(--color-reduce);
+  background-image: url('./images/vector-1.svg');
+}
