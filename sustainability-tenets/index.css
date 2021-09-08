@@ -17,6 +17,7 @@ html, body {
 
 body {
   display: flex;
+  overflow-x: hidden;
 }
 
 label, h1, h2 {
@@ -44,18 +45,18 @@ label {
 section {
   height: 100%;
   position: relative;
-  padding-left: 35px;
+  transition: 1s;
+  width: 65px;
 }
 
 .about {
   background-color: var(--color-about);
 }
 
-section.closed {
-  width: 45px;
+section:not(.open) {
   background-image: none;
 }
-.closed label {
+section:not(.open) label {
   cursor: pointer;
   left: 0;
   bottom: 0;
@@ -64,8 +65,12 @@ section.closed {
   padding-top: 35px;
   height: 100%;
 }
-.closed p {
+section:not(.open) *:not(label) {
   display: none;
+}
+
+.open {
+  width: 100%;
 }
 
 .centered-bg-img {
@@ -75,5 +80,30 @@ section.closed {
 
 .reduce {
   background-color: var(--color-reduce);
+  background-image: url('./images/vector-1.svg');
+}
+
+.rethink {
+  background-color: var(--color-rethink);
+  background-image: url('./images/vector-2.svg');
+}
+
+.repair {
+  background-color: var(--color-repair);
+  background-image: url('./images/vector-1.svg');
+}
+
+.recycle {
+  background-color: var(--color-recycle);
+  background-image: url('./images/vector-1.svg');
+}
+
+.reuse {
+  background-color: var(--color-reuse);
+  background-image: url('./images/vector-1.svg');
+}
+
+.refuse {
+  background-color: var(--color-refuse);
   background-image: url('./images/vector-1.svg');
 }
