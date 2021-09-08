@@ -1,0 +1,125 @@
+:root {
+  --color-about: #F8F4EB;
+  --color-reduce: #6E9DBF;
+  --color-rethink: #344536;
+  --color-repair: #DBA498;
+  --color-recycle: #59430B;
+  --color-reuse: #A28476;
+  --color-refuse: #8E4734;
+  --color-black: #010101;
+}
+
+.delayed-open p, 
+.delayed-open h1 {
+  transition: 400ms;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  overflow: hidden;
+}
+
+label, h1, p {
+  color: var(--color-black);
+  font-family: sans-serif;
+  margin: 0;
+}
+label, h1 {
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 72pt;
+  font-weight: normal;
+}
+h1, p {
+  padding: 35px;
+}
+label {
+  font-weight: bold;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+  position: absolute;
+  bottom: 35px;
+  left: 35px;
+  transform: rotate(0.5turn);
+}
+p {
+  font-size: 32pt;
+}
+
+section {
+  height: 100%;
+  position: relative;
+  transition: 1s;
+  width: 60px;
+}
+
+.about {
+  background-color: var(--color-about);
+}
+
+/* Makes the whole banner clickable */
+section:not(.open) label {
+  cursor: pointer;
+  left: 0;
+  bottom: 0;
+  padding-right: 20px;
+  padding-left: 18px;
+  padding-top: 35px;
+  height: 100%;
+}
+
+section:not(.delayed-open) {
+  background-image: none;
+}
+section:not(.delayed-open) p,
+section:not(.delayed-open) h1 {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.open {
+  width: 100%;
+  transition: 1s;
+}
+
+.centered-bg-img {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.reduce {
+  background-color: var(--color-reduce);
+  background-image: url('./images/vector-1.svg');
+}
+
+.rethink {
+  background-color: var(--color-rethink);
+  background-image: url('./images/vector-2.svg');
+}
+
+.repair {
+  background-color: var(--color-repair);
+  background-image: url('./images/vector-1.svg');
+}
+
+.recycle {
+  background-color: var(--color-recycle);
+  background-image: url('./images/vector-1.svg');
+}
+
+.reuse {
+  background-color: var(--color-reuse);
+  background-image: url('./images/vector-1.svg');
+}
+
+.refuse {
+  background-color: var(--color-refuse);
+  background-image: url('./images/vector-1.svg');
+}
