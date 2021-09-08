@@ -1,15 +1,11 @@
 (() => {
   const closeAllSections = () => {
-    const sections = document.getElementsByTagName('section')
+    const sections = document.getElementsByClassName('open')
     ;[...sections].forEach((el) => {
       el.classList.remove('open')
+      el.classList.remove('delayed-open')
     })
   }
-
-  closeAllSections()
-  const about = document.getElementsByClassName('about')[0]
-  about.classList.add('open')
-  about.classList.remove('closed')
 
   const labels = document.getElementsByTagName('label')
   ;[...labels].forEach((label) => {
@@ -18,8 +14,15 @@
       closeAllSections()
       // open the section that was clicked
       e.target.parentElement.classList.add('open')
+
+      // after 750ms, show the background image and text
+      setTimeout(() => {
+        const sections = document.getElementsByClassName('open')
+        ;[...sections].forEach((el) => {
+          el.classList.add('delayed-open')
+        })
+      }, 750)
     })
   })
-})()
 
-// each section should be the same width maximized, and the same width minimized. Only one should be maximized at a time
+})()

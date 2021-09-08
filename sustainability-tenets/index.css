@@ -9,6 +9,11 @@
   --color-black: #010101;
 }
 
+.delayed-open p, 
+.delayed-open h1 {
+  transition: 400ms;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -17,10 +22,10 @@ html, body {
 
 body {
   display: flex;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
-label, h1, h2 {
+label, h1, p {
   color: var(--color-black);
   font-family: sans-serif;
   margin: 0;
@@ -32,6 +37,9 @@ h1 {
   font-size: 72pt;
   font-weight: normal;
 }
+h1, p {
+  padding: 35px;
+}
 label {
   font-weight: bold;
   text-orientation: mixed;
@@ -41,21 +49,22 @@ label {
   left: 35px;
   transform: rotate(0.5turn);
 }
+p {
+  font-size: 32pt;
+}
 
 section {
   height: 100%;
   position: relative;
   transition: 1s;
-  width: 65px;
+  width: 60px;
 }
 
 .about {
   background-color: var(--color-about);
 }
 
-section:not(.open) {
-  background-image: none;
-}
+/* Makes the whole banner clickable */
 section:not(.open) label {
   cursor: pointer;
   left: 0;
@@ -65,12 +74,19 @@ section:not(.open) label {
   padding-top: 35px;
   height: 100%;
 }
-section:not(.open) *:not(label) {
-  display: none;
+
+section:not(.delayed-open) {
+  background-image: none;
+}
+section:not(.delayed-open) p,
+section:not(.delayed-open) h1 {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .open {
   width: 100%;
+  transition: 1s;
 }
 
 .centered-bg-img {
