@@ -1,0 +1,76 @@
+body {
+  background-color: #eee5d9;
+}
+
+.card {
+  background-color: white;
+  width: 220px;
+  border-radius: 15px;
+  padding: 10px;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  margin: 15px 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card .image-banner {
+  margin-bottom: 10px;
+  margin-left: -10px;
+  margin-top: -10px;
+  height: 100px;
+  width: calc(100% + 20px);
+  background-position: center;
+  background-size: cover;
+}
+
+.card .percent-off {
+  font-size: 18px;
+  padding: 3px 8px;
+  background: #FF8A00;
+  border-radius: 5px;
+  color: #FFD9AB;
+  display: block;
+  width: fit-content;
+}
+
+.card .initial-price {
+  font-size: 10px;
+  color: #D3D3D3;
+  width: fit-content;
+}
+
+.card .sale-price {
+  font-size: 14px;
+  color: #FF8A00;
+  width: fit-content;
+  padding-left: 5px;
+  font-size: 400;
+}
+
+.card .label {
+  color: #D3D3D3;
+  font-weight: 300;
+  font-size: 8px;
+}
+
+.card .developer {
+  color: #FF8A00;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.flex {
+  display: flex;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-br {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.spc-btw {
+  justify-content: space-between;
+}
