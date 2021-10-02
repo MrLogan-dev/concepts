@@ -1,5 +1,5 @@
 const getData = async () => {
-  return await fetch('http://localhost:4001/getGamesOnSale?start=100&count=100')
+  return await fetch('http://localhost:4001/getGamesOnSale?start=100&count=100').then(res => res.json())
 }
 
 const buildCardsInHtml = (data) => {
@@ -15,7 +15,7 @@ const buildCardsInHtml = (data) => {
 
     const price = document.createElement('div')
     price.classList.add('flex')
-    const percentOff = document.createElement('i')
+    const percentOff = document.createElement('span')
     percentOff.classList.add('percent-off')
     percentOff.innerText = discount_percent
 
@@ -66,7 +66,8 @@ function appendChildrenToNode(node, ...children){
 }
 
 const main = async () => {
-  const data = await getData()
+  const { data } = await getData()
+  console.log(data)
   const cards = buildCardsInHtml(data)
   console.log(cards)
   appendChildrenToNode(document.querySelector('#game-cards'), cards)

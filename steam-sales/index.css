@@ -1,7 +1,7 @@
 :root {
-  --primary: #D34F73;
+  --primary: #52B2CF;
   --accent: white;
-  --background: #DBBEA1;
+  --background: #D1CFE2;
 }
 
 body {
@@ -46,6 +46,7 @@ ul {
   color: var(--accent);
   display: block;
   width: fit-content;
+  font-weight: 100;
 }
 
 .card .initial-price {
