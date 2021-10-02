@@ -1,5 +1,5 @@
 const getData = async () => {
-  return await fetch('http://localhost:4001/getGamesOnSale?start=100&count=100').then(res => res.json())
+  return await fetch('https://steam-sales-server.herokuapp.com/getGamesOnSale?start=100&count=100').then(res => res.json())
 }
 
 const buildCardsInHtml = (data) => {
