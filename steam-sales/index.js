@@ -1,5 +1,8 @@
-const getData = async () => {
-  return await fetch('https://steam-sales-server.herokuapp.com/getGamesOnSale?start=100&count=100').then(res => res.json())
+const getData = async (start = 0, count = 25) => {
+  const localUrl = `http://localhost:4001/getGamesOnSale?start=${start}&count=${count}`
+  const herokuUrl = `https://steam-sales-server.herokuapp.com/getGamesOnSale?start=${start}&count=${count}`
+  const url = window.location.hostname === '127.0.0.1' ? localUrl : herokuUrl
+  return await fetch(url).then(res => res.json())
 }
 
 const buildCardsInHtml = (data) => {
