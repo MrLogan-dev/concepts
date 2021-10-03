@@ -67,9 +67,8 @@ function appendChildrenToNode(node, ...children){
 
 const main = async () => {
   const { data } = await getData()
-  console.log(data)
   const cards = buildCardsInHtml(data)
-  console.log(cards)
+  document.querySelector('.loader').classList.add('hidden')
   appendChildrenToNode(document.querySelector('#game-cards'), cards)
 }
 main()
