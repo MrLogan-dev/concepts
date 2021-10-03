@@ -8,14 +8,39 @@ const getData = async (start = 0, count = 25) => {
 }
 
 const buildCardsInHtml = (data) => {
-  return data.map(({ name, header_image, discount_percent, initial_formatted, final_formatted, developer, url }) => {
+  return data.map((obj) => {
+    const { category, header_image, discount_percent, initial_formatted, final_formatted, developer, url, ratingPercent } = obj
     const card = document.createElement('a')
     card.classList.add('card')
     card.href = url
 
     const img = document.createElement('div')
     img.classList.add('image-banner')
+    if (category !== 'App') img.classList.add('bundle')
     img.style.backgroundImage = `url(${header_image})`
+    const rating = document.createElement('img')
+    let ratingSrc = ''
+    switch (true) {
+      case ratingPercent > 90:
+        ratingSrc = './icons/best.svg'
+        break
+      case ratingPercent > 70:
+        ratingSrc = './icons/good.svg'
+        break
+      case ratingPercent > 40:
+        ratingSrc = './icons/ok.svg'
+        break
+      case ratingPercent > 20:
+        ratingSrc = './icons/bad.svg'
+        break
+      case ratingPercent > -1:
+        ratingSrc = './icons/terrible.svg'
+        break
+      default:
+    }
+    rating.src = ratingSrc
+    rating.classList.add('rating')
+    img.appendChild(rating)
     card.appendChild(img)
 
     const price = document.createElement('div')
@@ -76,10 +101,14 @@ const requestData = async (showMiniLoader) => {
     loader.classList.remove('hidden')
     loader.classList.add('mini-loader')
   }
-  const { data } = await getData(globalStart)
-  const cards = buildCardsInHtml(data)
+  const { data, error } = await getData(globalStart)
+  if (error) {
+    alert('error')
+  } else {
+    const cards = buildCardsInHtml(data)
+    appendChildrenToNode(document.querySelector('#game-cards'), cards)
+  }
   loader.classList.add('hidden')
-  appendChildrenToNode(document.querySelector('#game-cards'), cards)
 }
 
 const main = () => {

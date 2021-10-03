@@ -32,11 +32,21 @@ ul {
   margin-bottom: 10px;
   margin-left: -10px;
   margin-top: -10px;
-  height: 149px;
+  height: 150px;
   width: calc(100% + 20px);
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
+}
+.card .image-banner.bundle {
+  background-size: contain;
+}
+.card .image-banner .rating {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 30px;
 }
 
 .card .percent-off {
