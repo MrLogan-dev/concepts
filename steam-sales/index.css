@@ -95,3 +95,8 @@ ul {
 .hidden {
   display: none;
 }
+
+#time-to-load-more-cards {
+  position: relative;
+  top: -200vh;
+}

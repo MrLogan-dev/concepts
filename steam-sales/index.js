@@ -1,7 +1,9 @@
+let globalStart = 0
 const getData = async (start = 0, count = 25) => {
   const localUrl = `http://localhost:4001/getGamesOnSale?start=${start}&count=${count}`
   const herokuUrl = `https://steam-sales-server.herokuapp.com/getGamesOnSale?start=${start}&count=${count}`
   const url = window.location.hostname === '127.0.0.1' ? localUrl : herokuUrl
+  globalStart += count + 1
   return await fetch(url).then(res => res.json())
 }
 
@@ -68,10 +70,24 @@ function appendChildrenToNode(node, ...children){
   node.appendChild(documentFragment);
 }
 
-const main = async () => {
-  const { data } = await getData()
+const requestData = async () => {
+  const { data } = await getData(globalStart)
   const cards = buildCardsInHtml(data)
   document.querySelector('.loader').classList.add('hidden')
   appendChildrenToNode(document.querySelector('#game-cards'), cards)
+}
+
+const main = () => {
+  // make initial request because the element is off screen
+  // requestData()
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) requestData()
+  })
+
+  // The element to observe
+  let el = document.querySelector('#time-to-load-more-cards')
+
+  // Attach it to the observer
+  observer.observe(el)
 }
 main()
