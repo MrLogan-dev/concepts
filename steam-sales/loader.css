@@ -2,7 +2,15 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: rotate(45deg) translate(-50%, -50%);
+  transform: rotate(45deg);
+}
+
+.mini-loader {
+  transform: rotate(45deg) scale(0.25);
+  left: 30px;
+  bottom: 30px;
+  top: auto;
+  position: fixed;
 }
 
 .loader li {
@@ -38,12 +46,6 @@
   animation: d 1s ease-in-out infinite;
   top: 0px;
   left: -40px;
-}
-
-#e {
-  animation: e 1s ease-in-out infinite;
-  top: 0px;
-  left: 0px;
 }
 
 #f {

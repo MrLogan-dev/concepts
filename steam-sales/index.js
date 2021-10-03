@@ -70,18 +70,23 @@ function appendChildrenToNode(node, ...children){
   node.appendChild(documentFragment);
 }
 
-const requestData = async () => {
+const requestData = async (showMiniLoader) => {
+  const loader = document.querySelector('.loader')
+  if (showMiniLoader) {
+    loader.classList.remove('hidden')
+    loader.classList.add('mini-loader')
+  }
   const { data } = await getData(globalStart)
   const cards = buildCardsInHtml(data)
-  document.querySelector('.loader').classList.add('hidden')
+  loader.classList.add('hidden')
   appendChildrenToNode(document.querySelector('#game-cards'), cards)
 }
 
 const main = () => {
   // make initial request because the element is off screen
-  // requestData()
+  requestData()
   const observer = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) requestData()
+    if (entry.isIntersecting) requestData(true)
   })
 
   // The element to observe
