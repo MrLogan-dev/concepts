@@ -6,8 +6,7 @@ input[type='range'] {
   background: none;
   cursor: pointer;
   display: flex;
-  height: 100%;
-  min-height: 50px;
+  min-height: 25px;
   overflow: hidden;
   width: 100%;
 }

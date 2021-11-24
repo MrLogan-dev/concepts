@@ -6,9 +6,27 @@ html, body {
   --base: #6B4EFF;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  width: 200vw;
+  position: relative;
+  right: 0vw;
+  transition: 500ms;
+}
+
+section {
   display: flex;
   flex-direction: column;
+  width: 100vw;
+  align-items: center;
 }
 
 h1, h2, h3 {
@@ -53,6 +71,7 @@ input[type='number'] {
   font-size: 16px;
   color: var(--darkest);
   margin-bottom: 45px;
+  width: 100%;
 }
 
 button {
@@ -80,4 +99,28 @@ button img {
 
 .center {
   align-self: center;
+}
+
+.caption {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -5px;
+  margin-bottom: 45px;
+}
+.caption span {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #72777A;
+}
+
+.container {
+  width: 330px;
+}
+
+.slide {
+  right: 100vw;
 }

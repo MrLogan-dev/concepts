@@ -13,23 +13,36 @@
   <script src="./index.js" defer></script>
 </head>
 <body>
-  <h1 class="heading">How long will it take to review your PR?</h1>
+  <main>
+    <section>
+      <h1>How long will it take to review your PR?</h1>
 
-  <form class="center">
-    <h3>Complexity</h3>
-    <input type="range" min="1" max="30" value="1" class='slider'>
+      <form class="center container">
+        <h3>Complexity</h3>
+        <input type="range" min="10" max="30" value="1" class='slider'>
+        <div class='caption'>
+          <span>Straight forward</span>
+          <span>What is going on</span>
+        </div>
 
-    <h3>Lines Added</h3>
-    <input type='number' />
+        <h3>Lines Added</h3>
+        <input type='number' />
 
-    <h3>Files Changed</h3>
-    <input type='number' />
+        <h3>Files Changed</h3>
+        <input type='number' />
 
-    <button type='submit'>
-      <span>Find out</span>
-      <img src='./right-arrow.svg' />
-    </button>
-  </form>
+        <button type='submit'>
+          <span>Find out</span>
+          <img src='./right-arrow.svg' />
+        </button>
+      </form>
+    </section>
+    <section>
+      <h1>It will take</h1>
+      <h2>Approximately <span id='approx'></span> minutes</h2>
+      <h3>Estimated <span id='min'></span>-<span id='max'></span> minutes</h3>
+    </section>
+  </main>
 
 </body>
 </html>
